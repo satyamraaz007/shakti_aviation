@@ -15,7 +15,7 @@ export default function TeamPage() {
         <>
             <SEO
                 title="Leadership & Technical Experts | SACS Aviation Team"
-                description="Meet the senior leadership and technical experts of Sakthi Aviation Consultancy Services — experienced professionals from AAI, DGCA, CNS/ATM, airport operations and aviation safety management."
+                description="Meet the senior leadership and technical experts of Sakthi Aviation Consultancy Services experienced professionals from AAI, DGCA, CNS/ATM, airport operations and aviation safety management."
                 path="/team"
             />
 

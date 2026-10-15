@@ -69,7 +69,7 @@ export const services: ServiceItem[] = [
             'Consultancy related to airport airside systems, equipment selection, procurement, installation, testing and commissioning.',
         image: 'https://images.pexels.com/photos/19996007/pexels-photo-19996007.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
         longDescription:
-            'SACS provides specialised consultancy for airport airside equipment, covering equipment selection, technical specification, procurement guidance, installation supervision, testing and commissioning. Our team understands the technical and regulatory requirements of airside systems — from ground lighting and visual aids to specialised operational equipment — and helps clients navigate the procurement and commissioning lifecycle with confidence.',
+            'SACS provides specialised consultancy for airport airside equipment, covering equipment selection, technical specification, procurement guidance, installation supervision, testing and commissioning. Our team understands the technical and regulatory requirements of airside systems from ground lighting and visual aids to specialised operational equipment and helps clients navigate the procurement and commissioning lifecycle with confidence.',
         deliverables: [
             'Equipment selection and technical specification',
             'Procurement guidance and vendor evaluation',
@@ -161,12 +161,12 @@ export const services: ServiceItem[] = [
         id: '8',
         slug: 'project-consultancy',
         icon: PackageCheck,
-        title: 'Project Consultancy & Turnkey Implementation',
+        title: 'Project Consultancy',
         shortDescription:
             'Project planning, procurement guidance, installation, testing, commissioning, maintenance and implementation support.',
         image: 'https://images.pexels.com/photos/14018325/pexels-photo-14018325.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
         longDescription:
-            'SACS offers project consultancy and turnkey implementation support that spans the full project lifecycle. From initial project planning and procurement guidance through installation, testing, commissioning and ongoing maintenance support, we provide the technical and managerial backbone to ensure complex aviation and infrastructure projects are delivered to specification. Our turnkey approach is particularly valuable for clients who need a single, accountable partner across multiple project phases.',
+            'SACS offers project consultancy support that spans the full project lifecycle. From initial project planning and procurement guidance through installation, testing, commissioning and ongoing maintenance support, we provide the technical and managerial backbone to ensure complex aviation and infrastructure projects are delivered to specification. Our turnkey approach is particularly valuable for clients who need a single, accountable partner across multiple project phases.',
         deliverables: [
             'Project planning and scheduling',
             'Procurement guidance and technical specification',

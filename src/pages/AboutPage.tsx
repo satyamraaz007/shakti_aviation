@@ -52,7 +52,7 @@ export default function AboutPage() {
         <>
             <SEO
                 title="About SACS | Aviation Consultancy Company Profile"
-                description="Learn about Sakthi Aviation Consultancy Services — established in 2005 by senior aviation professionals. Discover our history, expertise, leadership and consultancy capabilities."
+                description="Learn about Sakthi Aviation Consultancy Services, established in 2005 by senior aviation professionals. Discover our history, expertise, leadership and consultancy capabilities."
                 path="/about"
                 type="article"
             />
@@ -107,7 +107,7 @@ export default function AboutPage() {
                                     Over the years, the company has undertaken consultancy assignments for greenfield
                                     and brownfield airport projects, CNS/ATM technical studies, aeronautical studies,
                                     structural height clearance for AAI and IAF/MoD, and security and surveillance
-                                    system implementation — both within India and in international markets.
+                                    system implementation both within India and in international markets.
                                 </p>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ export default function AboutPage() {
                         <SectionHeading
                             eyebrow="Our Journey"
                             title="Evolving with India's Aviation Sector"
-                            subtitle="Since 2005, SACS has grown alongside India's aviation expansion — from airport privatization to greenfield development and regional connectivity."
+                            subtitle="Since 2005, SACS has grown alongside India's aviation expansion from airport privatization to greenfield development and regional connectivity."
                             align="center"
                             className="mb-14"
                         />
@@ -140,12 +140,12 @@ export default function AboutPage() {
                             {
                                 year: '2011',
                                 title: 'Greenfield Airport CNS/ATM',
-                                desc: 'CNS/ATM technical study for Green Field Airport, Bijapur, Karnataka — early engagement in India\'s greenfield airport development wave.',
+                                desc: 'CNS/ATM technical study for Green Field Airport, Bijapur, Karnataka early engagement in India\'s greenfield airport development wave.',
                             },
                             {
                                 year: '2017',
                                 title: 'International Expansion',
-                                desc: 'CNS equipment evaluation and master plan review for New Libreville Airport, Gabon — marking SACS\'s entry into international consultancy.',
+                                desc: 'CNS equipment evaluation and master plan review for New Libreville Airport, Gabon marking SACS\'s entry into international consultancy.',
                             },
                             {
                                 year: '2019',
@@ -253,7 +253,7 @@ export default function AboutPage() {
                                     <ImageWithFallback
                                         src={member.photo}
                                         alt={member.photoAlt}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#2A1F4A]/80 to-transparent" />
                                     <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -332,9 +332,9 @@ export default function AboutPage() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { title: 'AAI', desc: 'Airports Authority of India — airport operations, CNS/ATM infrastructure and regulatory processes.' },
-                            { title: 'DGCA', desc: 'Directorate General of Civil Aviation — safety oversight, compliance and regulatory framework.' },
-                            { title: 'IAF / MoD', desc: 'Indian Air Force / Ministry of Defence — height clearance NOC and aeronautical studies.' },
+                            { title: 'AAI', desc: 'Airports Authority of India, airport operations, CNS/ATM infrastructure and regulatory processes.' },
+                            { title: 'DGCA', desc: 'Directorate General of Civil Aviation, safety oversight, compliance and regulatory framework.' },
+                            { title: 'IAF / MoD', desc: 'Indian Air Force / Ministry of Defence, height clearance NOC and aeronautical studies.' },
                             { title: 'Ministry of Civil Aviation', desc: 'Policy framework, national aviation programmes and project coordination.' },
                         ].map((item) => (
                             <div key={item.title} className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all">
@@ -348,7 +348,7 @@ export default function AboutPage() {
 
             <CTASection
                 title="Ready to Discuss Your Aviation Project?"
-                subtitle="Our team is available to discuss your consultancy requirements — from airport development to height clearance and CNS/ATM."
+                subtitle="Our team is available to discuss your consultancy requirements from airport development to height clearance and CNS/ATM."
                 primaryLabel="Talk to Our Experts"
                 primaryPath="/contact"
                 secondaryLabel="View Our Services"

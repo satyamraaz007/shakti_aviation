@@ -308,7 +308,7 @@ export default function HomePage() {
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Selected Work"
-                        title="Selected Projects & Industry Experience"
+                        title="Projects & Industry Experience"
                         subtitle="A cross-section of consultancy assignments spanning airport development, CNS/ATM, aeronautical studies and international aviation projects."
                         align="center"
                         className="mb-14"
@@ -372,7 +372,7 @@ export default function HomePage() {
                                 key={item.title}
                                 className="p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:bg-white/[0.06]"
                             >
-                                <Globe2 className="w-7 h-7 text-[#168DE2] mb-4" />
+                                {/* <Globe2 className="w-7 h-7 text-[#168DE2] mb-4" /> */}
                                 <h3 className="font-display font-bold text-[18px] text-white mb-2">{item.title}</h3>
                                 <div className="flex items-center gap-1.5 text-[13px] text-[#168DE2] mb-3">
                                     <MapPin className="w-3.5 h-3.5" />
@@ -480,7 +480,7 @@ export default function HomePage() {
             />
 
             {/* Contact preview */}
-            <section className="py-20 lg:py-28 bg-section-alt">
+            {/* <section className="py-20 lg:py-28 bg-section-alt">
                 <div className="container-sacs">
                     <div ref={contactPreviewRef} className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
@@ -531,7 +531,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 }

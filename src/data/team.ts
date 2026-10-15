@@ -1,3 +1,10 @@
+import drArjunSinghImg from '@/assets/Dr. Arjun Singh.png';
+import mrMSBhargavaImg from '@/assets/Mr. M. S. Bhargava.png';
+import mrDKBeheraImg from '@/assets/Mr. D. K. Behera.png';
+import mrDhirajSoniImg from '@/assets/Mr. Dhiraj Soni.png';
+import mrHemchandSharmaImg from '@/assets/Mr. Hemchand Sharma.png';
+import mrHarshEnkhiaImg from '@/assets/Mr. Harsh Enkhia.png';
+
 export interface TeamMember {
     id: string;
     name: string;
@@ -14,7 +21,7 @@ export const teamMembers: TeamMember[] = [
         id: '1',
         name: 'Dr. Arjun Singh',
         designation: 'Managing Director',
-        photo: 'https://images.pexels.com/photos/37605831/pexels-photo-37605831.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&dpr=1',
+        photo: drArjunSinghImg,
         photoAlt: 'Dr. Arjun Singh, Managing Director of SACS',
         summary:
             'Managing Director of SACS with extensive experience in AAI, DGCA, CNS/ATM systems, GAGAN, GBAS and airport CNS facilities. Dr. Singh has led technical planning, engineering and project implementation across multiple civil aviation and Ministry of Civil Aviation initiatives.',
@@ -38,7 +45,7 @@ export const teamMembers: TeamMember[] = [
         id: '2',
         name: 'Mr. M. S. Bhargava',
         designation: 'Senior Consultant',
-        photo: 'https://images.pexels.com/photos/17049771/pexels-photo-17049771.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&dpr=1',
+        photo: mrMSBhargavaImg,
         photoAlt: 'Mr. M. S. Bhargava, Senior Consultant at SACS',
         summary:
             'Senior professional with extensive experience in airport operations, air traffic services and civil aviation consultancy, contributing to SACS project advisory and technical consultancy.',
@@ -56,7 +63,7 @@ export const teamMembers: TeamMember[] = [
         id: '3',
         name: 'Mr. D. K. Behera',
         designation: 'Senior Consultant',
-        photo: 'https://images.pexels.com/photos/10417388/pexels-photo-10417388.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&dpr=1',
+        photo: mrDKBeheraImg,
         photoAlt: 'Mr. D. K. Behera, Senior Consultant at SACS',
         summary:
             'Experienced aviation professional contributing to SACS consultancy in airport operations, safety management and technical advisory across multiple project assignments.',
@@ -74,7 +81,7 @@ export const teamMembers: TeamMember[] = [
         id: '4',
         name: 'Mr. Dhiraj Soni',
         designation: 'Consultant',
-        photo: 'https://images.pexels.com/photos/37148308/pexels-photo-37148308.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&dpr=1',
+        photo: mrDhirajSoniImg,
         photoAlt: 'Mr. Dhiraj Soni, Consultant at SACS',
         summary:
             'Aviation consultant contributing to SACS technical consultancy, project support and implementation across airport infrastructure and CNS/ATM related assignments.',
@@ -92,7 +99,7 @@ export const teamMembers: TeamMember[] = [
         id: '5',
         name: 'Mr. Hemchand Sharma',
         designation: 'Consultant',
-        photo: 'https://images.pexels.com/photos/5583988/pexels-photo-5583988.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&dpr=1',
+        photo: mrHemchandSharmaImg,
         photoAlt: 'Mr. Hemchand Sharma, Consultant at SACS',
         summary:
             'Aviation consultant with experience in airport operations, security systems and surveillance solutions, contributing to SACS security and surveillance consultancy practice.',
@@ -110,7 +117,7 @@ export const teamMembers: TeamMember[] = [
         id: '6',
         name: 'Mr. Harsh Enkhia',
         designation: 'Consultant',
-        photo: 'https://images.pexels.com/photos/32844866/pexels-photo-32844866.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&dpr=1',
+        photo: mrHarshEnkhiaImg,
         photoAlt: 'Mr. Harsh Enkhia, Consultant at SACS',
         summary:
             'Consultant at SACS contributing to project consultancy, technical support and implementation across aviation infrastructure and height clearance consultancy assignments.',

@@ -45,7 +45,7 @@ export default function Hero() {
             </svg>
 
             {/* Content */}
-            <div className="container-sacs relative z-10 pt-32 pb-20">
+            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-8 lg:pl-8 lg:pr-12 xl:pl-10 relative z-10 pt-32 pb-20">
                 <div className="max-w-4xl">
                     <div className="flex items-center gap-3 mb-6 animate-[slideUp_0.8s_ease-out]">
                         <span className="h-px w-10 bg-gradient-to-r from-[#168DE2] to-transparent" />

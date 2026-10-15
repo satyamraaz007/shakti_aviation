@@ -17,13 +17,13 @@ export default function ProjectsPage() {
         <>
             <SEO
                 title="Aviation Projects & Consultancy Experience | SACS"
-                description="Explore SACS selected projects and industry experience — airport development, CNS/ATM studies, aeronautical studies, NOC consultancy and international airport projects across India and abroad."
+                description="Explore SACS projects and industry experience airport development, CNS/ATM studies, aeronautical studies, NOC consultancy and international airport projects across India and abroad."
                 path="/projects"
             />
 
             <PageHero
                 eyebrow="Our Work"
-                title="Selected Projects & Industry Experience"
+                title="Projects & Industry Experience"
                 subtitle="A cross-section of consultancy assignments spanning airport development, CNS/ATM technical studies, aeronautical studies, NOC consultancy and international aviation projects."
                 image="https://images.pexels.com/photos/12858453/pexels-photo-12858453.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&dpr=1"
                 imageAlt="Aerial view of airport runway and terminal area at twilight"
@@ -47,8 +47,8 @@ export default function ProjectsPage() {
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-5 py-2.5 rounded-lg text-[13.5px] font-semibold transition-all ${activeCategory === cat
-                                        ? 'bg-[#402E6D] text-white shadow-md'
-                                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                                    ? 'bg-[#402E6D] text-white shadow-md'
+                                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                                     }`}
                             >
                                 {cat}

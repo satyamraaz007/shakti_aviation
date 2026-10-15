@@ -12,7 +12,7 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
     {
         id: '1',
-        name: 'CNS/ATM Technical Study — Green Field Airport, Bijapur',
+        name: 'Green Field Airport, Bijapur',
         location: 'Karnataka, India',
         year: '2011',
         category: 'CNS/ATM',
@@ -23,7 +23,7 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '2',
-        name: 'CNS Equipment Evaluation — New Libreville Airport',
+        name: 'New Libreville Airport',
         location: 'Libreville, Gabon',
         year: '2017',
         category: 'International Consultancy',
@@ -34,7 +34,7 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '3',
-        name: 'Master Plan Review — New Libreville Airport',
+        name: 'New Libreville Airport',
         location: 'Libreville, Gabon',
         year: '2017',
         category: 'Airport Development',
@@ -45,7 +45,7 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '4',
-        name: 'Apron Markings Redesign — Shirdi International Airport',
+        name: 'Shirdi International Airport',
         location: 'Maharashtra, India',
         year: '2019',
         category: 'Airport Operations',
@@ -56,7 +56,7 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '5',
-        name: 'Master Plan Review — Pokhara Regional International Airport',
+        name: 'Pokhara Regional International Airport',
         location: 'Pokhara, Nepal',
         year: '2019',
         category: 'International Consultancy',
@@ -67,7 +67,7 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '6',
-        name: 'UDAN Airports — Flight Approach Safety & Efficiency Study',
+        name: 'Flight Approach Safety & Efficiency Study',
         location: 'India (Multiple Airports)',
         year: '2022',
         category: 'Aeronautical Studies',
@@ -78,7 +78,7 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '7',
-        name: 'Aviation Park Conceptual Master Planning — Rajkot Greenfield International Airport',
+        name: 'Rajkot Greenfield International Airport',
         location: 'Hirasar, Gujarat, India',
         year: '2022',
         category: 'Aviation Infrastructure',

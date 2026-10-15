@@ -19,7 +19,7 @@ export default function ServicesPage() {
             <PageHero
                 eyebrow="Our Services"
                 title="Integrated Aviation & Infrastructure Solutions"
-                subtitle="Specialized consultancy, technical services and implementation support for aviation, infrastructure and security environments — delivered by senior aviation professionals."
+                subtitle="Specialized consultancy, technical services and implementation support for aviation, infrastructure and security environments delivered by senior aviation professionals."
                 image="https://images.pexels.com/photos/4318372/pexels-photo-4318372.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&dpr=1"
                 imageAlt="Modern airport terminal interior architecture"
                 breadcrumbs={[{ label: 'Services' }]}
@@ -30,7 +30,7 @@ export default function ServicesPage() {
                     <SectionHeading
                         eyebrow="Service Overview"
                         title="Comprehensive Consultancy Across the Aviation Lifecycle"
-                        subtitle="From airport planning and development through operations, safety, security, CNS/ATM and regulatory height clearance — SACS covers the full spectrum of aviation consultancy needs."
+                        subtitle="From airport planning and development through operations, safety, security, CNS/ATM and regulatory height clearance SACS covers the full spectrum of aviation consultancy needs."
                         align="center"
                         className="mb-14"
                     />
@@ -79,7 +79,7 @@ export default function ServicesPage() {
 
             <CTASection
                 title="Discuss Your Requirement with Our Experts"
-                subtitle="Whether it's airport development, CNS/ATM, height clearance NOC or security systems — our team is ready to help."
+                subtitle="Whether it's airport development, CNS/ATM, height clearance NOC or security systems our team is ready to help."
                 primaryLabel="Talk to Our Experts"
                 primaryPath="/contact"
                 secondaryLabel="View Our Projects"

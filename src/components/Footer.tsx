@@ -2,16 +2,31 @@ import { Link } from 'react-router-dom';
 import { Plane, MapPin, Phone, ExternalLink, Mail } from 'lucide-react';
 import { siteInfo, usefulLinks } from '@/data/siteInfo';
 import { services } from '@/data/services';
+import footerBg from '@/assets/hero_airport.png';
 
 export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#2A1F4A] text-white">
-            {/* Top accent line */}
-            <div className="h-1 gradient-sacs" />
+        <footer className="relative bg-[#2A1F4A] text-white overflow-hidden">
+            {/* Background image & transparent layer of color */}
+            <div className="absolute inset-0 pointer-events-none">
+                <img
+                    src={footerBg}
+                    alt="Footer aviation background"
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                />
+                <div className="absolute inset-0 bg-[#2A1F4A]/92 backdrop-blur-[0.5px]" />
+            </div>
 
-            <div className="container-sacs py-16 lg:py-20">
+            {/* Subtle aviation grid overlay */}
+            <div className="absolute inset-0 aviation-grid opacity-15 pointer-events-none" aria-hidden="true" />
+
+            {/* Top accent line */}
+            <div className="relative z-10 h-1 gradient-sacs" />
+
+            <div className="container-sacs relative z-10 py-16 lg:py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
                     {/* Company description */}
                     <div className="lg:col-span-1">
@@ -125,7 +140,7 @@ export default function Footer() {
             </div>
 
             {/* Bottom bar */}
-            <div className="border-t border-white/10">
+            <div className="relative z-10 border-t border-white/10">
                 <div className="container-sacs py-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-[13px] text-white/50 text-center md:text-left">
                         © {year} Sakthi Aviation Consultancy Services Private Limited. All Rights Reserved.
