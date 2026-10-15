@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, Plane, Phone } from 'lucide-react';
 import { navLinks } from '@/data/siteInfo';
 import { services } from '@/data/services';
 import { siteInfo } from '@/data/siteInfo';
+import logo from '@/assets//sacs_logo.png';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -50,31 +51,22 @@ export default function Navbar() {
 
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isTransparent
-                        ? 'bg-transparent'
-                        : 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm'
+                    ? 'bg-yellow-400/20 backdrop-blur-sm'
+                    : 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm'
                     }`}
             >
                 <nav className="container-sacs flex items-center justify-between h-[72px] lg:h-[80px]" aria-label="Main navigation">
                     {/* Logo */}
                     <Link
                         to="/"
-                        className="flex items-center gap-2.5 flex-shrink-0"
+                        className="flex items-center flex-shrink-0"
                         aria-label={`${siteInfo.name} home`}
                     >
-                        <span
-                            className={`flex items-center justify-center w-10 h-10 rounded-lg transition-colors ${isTransparent ? 'bg-white/10 backdrop-blur' : 'bg-[#402E6D]'
-                                }`}
-                        >
-                            <Plane className="w-5 h-5 text-white" />
-                        </span>
-                        <span className="flex flex-col leading-none">
-                            <span className={`font-display font-bold text-[17px] ${isTransparent ? 'text-white' : 'text-gray-900'}`}>
-                                SACS
-                            </span>
-                            <span className={`text-[10px] font-medium tracking-wide ${isTransparent ? 'text-white/60' : 'text-gray-500'}`}>
-                                Aviation Consultancy
-                            </span>
-                        </span>
+                        <img
+                            src={logo}
+                            alt="SACS Aviation Consultancy Services"
+                            className="h-10 w-auto object-contain"
+                        />
                     </Link>
 
                     {/* Desktop nav */}
@@ -90,8 +82,8 @@ export default function Navbar() {
                                     <Link
                                         to={link.path}
                                         className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors ${isTransparent
-                                                ? 'text-white/90 hover:text-white hover:bg-white/10'
-                                                : 'text-gray-700 hover:text-[#402E6D] hover:bg-gray-50'
+                                            ? 'text-white/90 hover:text-white hover:bg-white/10'
+                                            : 'text-gray-700 hover:text-[#402E6D] hover:bg-gray-50'
                                             } ${location.pathname.startsWith('/services') ? (isTransparent ? 'text-white' : 'text-[#402E6D]') : ''
                                             }`}
                                     >
@@ -140,8 +132,8 @@ export default function Navbar() {
                                     key={link.path}
                                     to={link.path}
                                     className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors ${isTransparent
-                                            ? 'text-white/90 hover:text-white hover:bg-white/10'
-                                            : 'text-gray-700 hover:text-[#402E6D] hover:bg-gray-50'
+                                        ? 'text-white/90 hover:text-white hover:bg-white/10'
+                                        : 'text-gray-700 hover:text-[#402E6D] hover:bg-gray-50'
                                         } ${location.pathname === link.path ? (isTransparent ? 'text-white' : 'text-[#402E6D]') : ''
                                         }`}
                                 >
@@ -198,8 +190,8 @@ export default function Navbar() {
                                     <button
                                         onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                                         className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-[15px] font-medium transition-colors ${location.pathname.startsWith('/services')
-                                                ? 'text-[#402E6D] bg-[#402E6D]/5'
-                                                : 'text-gray-700 hover:bg-gray-50'
+                                            ? 'text-[#402E6D] bg-[#402E6D]/5'
+                                            : 'text-gray-700 hover:bg-gray-50'
                                             }`}
                                         aria-expanded={mobileServicesOpen}
                                     >
@@ -231,8 +223,8 @@ export default function Navbar() {
                                     key={link.path}
                                     to={link.path}
                                     className={`block px-4 py-3 rounded-lg text-[15px] font-medium transition-colors ${location.pathname === link.path
-                                            ? 'text-[#402E6D] bg-[#402E6D]/5'
-                                            : 'text-gray-700 hover:bg-gray-50'
+                                        ? 'text-[#402E6D] bg-[#402E6D]/5'
+                                        : 'text-gray-700 hover:bg-gray-50'
                                         }`}
                                 >
                                     {link.label}
