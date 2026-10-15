@@ -4,6 +4,7 @@ import SEO from '@/components/SEO';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { siteInfo } from '@/data/siteInfo';
 
@@ -61,7 +62,8 @@ export default function CareersPage() {
                         ].map((item) => {
                             const Icon = item.icon;
                             return (
-                                <div key={item.title} className="card-sacs p-7">
+                                <div key={item.title} className="card-sacs p-7 relative overflow-hidden group">
+                                    <YellowBorderBeam rx={16} />
                                     <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#402E6D]/8 mb-5">
                                         <Icon className="w-6 h-6 text-[#402E6D]" />
                                     </span>
@@ -118,7 +120,8 @@ export default function CareersPage() {
                             title="Current Vacancies"
                             className="mb-6"
                         />
-                        <div className="card-sacs p-8 lg:p-10 text-center">
+                        <div className="card-sacs p-8 lg:p-10 text-center relative overflow-hidden group">
+                            <YellowBorderBeam rx={16} />
                             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gray-50 mb-5">
                                 <Briefcase className="w-8 h-8 text-gray-400" />
                             </div>

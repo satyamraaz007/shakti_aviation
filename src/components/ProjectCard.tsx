@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import ImageWithFallback from '@/components/ImageWithFallback';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import type { ProjectItem } from '@/data/projects';
 
 interface ProjectCardProps {
@@ -9,7 +10,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <article className="card-sacs group overflow-hidden flex flex-col h-full">
+        <article className="card-sacs group overflow-hidden flex flex-col h-full relative">
+            <YellowBorderBeam rx={16} />
             <div className="relative aspect-[16/10] overflow-hidden rounded-t-2xl bg-gray-100">
                 <ImageWithFallback
                     src={project.image}

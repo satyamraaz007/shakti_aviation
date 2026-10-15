@@ -9,6 +9,7 @@ import TeamCard from '@/components/TeamCard';
 import StatCard from '@/components/StatCard';
 import CTASection from '@/components/CTASection';
 import ImageWithFallback from '@/components/ImageWithFallback';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { services } from '@/data/services';
 import { projects } from '@/data/projects';
@@ -124,7 +125,7 @@ export default function HomePage() {
                                 <span className="eyebrow">About SACS</span>
                                 <span className="h-px w-8 bg-gradient-to-r from-[#168DE2] to-transparent" />
                             </div>
-                            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-[44px] leading-[1.15] text-gray-900 text-balance mb-6">
+                            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] leading-[1.22] text-gray-900 mb-5">
                                 Decades of Aviation Expertise. Built for Complex Projects.
                             </h2>
                             <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-gray-600">
@@ -165,14 +166,16 @@ export default function HomePage() {
                         </div>
 
                         <div className="relative">
-                            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
+                            <div className="image-card-animated relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg group">
+                                <YellowBorderBeam rx={16} />
                                 <ImageWithFallback
                                     src="https://images.pexels.com/photos/15273870/pexels-photo-15273870.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&dpr=1"
                                     alt="Air traffic control tower at Amsterdam Schiphol Airport"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] border border-gray-100">
+                            <div className="card-sacs absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] border border-gray-100 group">
+                                <YellowBorderBeam rx={12} />
                                 <p className="font-display font-bold text-3xl text-[#402E6D]">2005</p>
                                 <p className="text-[13px] text-gray-500 mt-1">Established by senior aviation professionals</p>
                             </div>
@@ -239,8 +242,9 @@ export default function HomePage() {
                             return (
                                 <div
                                     key={block.title}
-                                    className="group p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20"
+                                    className="group relative p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 overflow-hidden"
                                 >
+                                    <YellowBorderBeam rx={16} />
                                     <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#168DE2]/20 mb-5 transition-colors group-hover:bg-[#168DE2]/30">
                                         <Icon className="w-6 h-6 text-[#168DE2]" />
                                     </span>
@@ -261,7 +265,8 @@ export default function HomePage() {
                 <div className="container-sacs">
                     <div ref={nocRef} className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="relative order-2 lg:order-1">
-                            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
+                            <div className="image-card-animated relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg group">
+                                <YellowBorderBeam rx={16} />
                                 <ImageWithFallback
                                     src="https://images.pexels.com/photos/18822289/pexels-photo-18822289.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&dpr=1"
                                     alt="City skyline with construction cranes and tall buildings near airport"
@@ -276,7 +281,7 @@ export default function HomePage() {
                                 <span className="eyebrow">Specialized Consultancy</span>
                                 <span className="h-px w-8 bg-gradient-to-r from-[#A34354] to-transparent" />
                             </div>
-                            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-[44px] leading-[1.15] text-gray-900 text-balance mb-6">
+                            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] leading-[1.22] text-gray-900 mb-5">
                                 Specialized Aviation Height Clearance & NOC Consultancy
                             </h2>
                             <p className="text-[15px] md:text-[16px] leading-relaxed text-gray-600 mb-6">
@@ -450,8 +455,9 @@ export default function HomePage() {
                         {publications.map((pub, index) => (
                             <div
                                 key={index}
-                                className="group flex items-start gap-4 p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all"
+                                className="group relative flex items-start gap-4 p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all overflow-hidden"
                             >
+                                <YellowBorderBeam rx={12} />
                                 <span className="flex-shrink-0 w-11 h-14 rounded-md gradient-sacs flex items-center justify-center">
                                     <BookOpen className="w-5 h-5 text-white" />
                                 </span>

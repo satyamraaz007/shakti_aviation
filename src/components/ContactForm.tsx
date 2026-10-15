@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Send, CheckCircle2, Loader2 } from 'lucide-react';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 
 interface FormData {
     name: string;
@@ -82,7 +83,8 @@ export default function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="card-sacs p-6 md:p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="card-sacs p-6 md:p-8 space-y-6 relative overflow-hidden group">
+            <YellowBorderBeam rx={16} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Full Name */}
                 <div>

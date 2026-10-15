@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plane } from 'lucide-react';
 import ImageWithFallback from '@/components/ImageWithFallback';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import type { ServiceItem } from '@/data/services';
 
 interface ServiceCardProps {
@@ -20,8 +21,9 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
     return (
         <Link
             to={`/services/${service.slug}`}
-            className="group bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(5,38,64,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden"
+            className="group relative bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(234,179,8,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full overflow-hidden"
         >
+            <YellowBorderBeam rx={16} />
             {/* Top Image with Overlapping Circular Badge */}
             <div className="relative w-full">
                 {/* Image Container with zoom effect */}

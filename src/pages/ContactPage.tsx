@@ -3,6 +3,7 @@ import SEO from '@/components/SEO';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import ContactForm from '@/components/ContactForm';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import { siteInfo } from '@/data/siteInfo';
 
 export default function ContactPage() {
@@ -143,7 +144,8 @@ export default function ContactPage() {
             {/* Map */}
             <section className="pb-20 lg:pb-28">
                 <div className="container-sacs">
-                    <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-[400px]">
+                    <div className="image-card-animated relative rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-[400px] group">
+                        <YellowBorderBeam rx={16} />
                         <iframe
                             title="SACS Office Location Map"
                             src={`https://www.google.com/maps?q=${mapsQuery}&output=embed`}

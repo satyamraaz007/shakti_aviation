@@ -70,13 +70,65 @@
     }
 
     .card-sacs {
-        @apply bg-white rounded-2xl border border-gray-100 transition-all duration-300 hover:border-gray-200;
-
+        @apply bg-white rounded-2xl border border-gray-100 transition-all duration-300;
+        position: relative;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .card-sacs:hover {
-        box-shadow: 0 8px 30px rgba(64, 46, 109, 0.08);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 36px -6px rgba(234, 179, 8, 0.18), 0 10px 24px -4px rgba(64, 46, 109, 0.08);
+        border-color: rgba(250, 204, 21, 0.45);
+    }
+
+    .image-card-animated {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    }
+
+    .image-card-animated:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px -6px rgba(234, 179, 8, 0.22), 0 8px 20px -4px rgba(0, 0, 0, 0.12);
+    }
+
+    .image-card-animated img,
+    .card-sacs img {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    }
+
+    .image-card-animated:hover img,
+    .card-sacs:hover img {
+        transform: scale(1.05);
+        filter: brightness(1.03) contrast(1.02);
+    }
+
+    .yellow-beam-stroke {
+        stroke: #FACC15;
+        stroke-width: 2.5px;
+        stroke-dasharray: 26 74;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.95)) drop-shadow(0 0 10px rgba(234, 179, 8, 0.7));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Hover: Moving clockwise from top-left corner to right completing the whole cycle */
+    .card-sacs:hover .yellow-beam-stroke,
+    .image-card-animated:hover .yellow-beam-stroke,
+    .group:hover .yellow-beam-stroke,
+    [data-beam-hover]:hover .yellow-beam-stroke {
+        opacity: 1;
+        animation: yellowBeamRun 2.2s linear infinite;
+    }
+
+    /* Scroll reveal: Triggered when element enters viewport, completes full cycle from top-left to right */
+    .revealed .yellow-beam-stroke,
+    .revealed.card-sacs .yellow-beam-stroke,
+    .reveal-stagger.revealed .yellow-beam-stroke,
+    .revealed .image-card-animated .yellow-beam-stroke {
+        animation: yellowBeamRunScroll 2.8s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
     }
 
     .link-underline {
@@ -213,8 +265,31 @@
     }
 }
 
-.scroll-indicator {
-    animation: scrollBounce 2s ease-in-out infinite;
+/* Yellow border beam keyframes */
+@keyframes yellowBeamRun {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -100;
+    }
+}
+
+@keyframes yellowBeamRunScroll {
+    0% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: -100;
+        opacity: 0;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import ImageWithFallback from '@/components/ImageWithFallback';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { teamMembers } from '@/data/team';
 
@@ -71,14 +72,16 @@ export default function AboutPage() {
                 <div className="container-sacs">
                     <div ref={overviewRef} className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="relative">
-                            <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
+                            <div className="image-card-animated relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg group">
+                                <YellowBorderBeam rx={16} />
                                 <ImageWithFallback
                                     src="https://images.pexels.com/photos/36011550/pexels-photo-36011550.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&dpr=1"
                                     alt="Modern airport terminal interior architecture"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="absolute -top-5 -right-5 bg-[#402E6D] text-white rounded-xl p-5 shadow-lg max-w-[200px]">
+                            <div className="card-sacs absolute -top-5 -right-5 bg-[#402E6D] text-white rounded-xl p-5 shadow-lg max-w-[200px] group overflow-hidden">
+                                <YellowBorderBeam rx={12} />
                                 <p className="font-display font-bold text-3xl">30+</p>
                                 <p className="text-[13px] text-white/70 mt-1">Years of experience among senior professionals</p>
                             </div>
@@ -222,8 +225,9 @@ export default function AboutPage() {
                         {whySacs.map((item) => (
                             <div
                                 key={item.title}
-                                className="p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:bg-white/[0.06]"
+                                className="group relative p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:bg-white/[0.06] overflow-hidden"
                             >
+                                <YellowBorderBeam rx={16} />
                                 <h3 className="font-display font-bold text-[18px] text-white mb-3">{item.title}</h3>
                                 <p className="text-[14px] text-white/60 leading-relaxed">{item.desc}</p>
                             </div>
@@ -247,8 +251,9 @@ export default function AboutPage() {
                             <Link
                                 key={member.id}
                                 to="/team"
-                                className="card-sacs overflow-hidden group flex flex-col"
+                                className="card-sacs overflow-hidden group flex flex-col relative"
                             >
+                                <YellowBorderBeam rx={16} />
                                 <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                                     <ImageWithFallback
                                         src={member.photo}
@@ -337,7 +342,8 @@ export default function AboutPage() {
                             { title: 'IAF / MoD', desc: 'Indian Air Force / Ministry of Defence, height clearance NOC and aeronautical studies.' },
                             { title: 'Ministry of Civil Aviation', desc: 'Policy framework, national aviation programmes and project coordination.' },
                         ].map((item) => (
-                            <div key={item.title} className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all">
+                            <div key={item.title} className="card-sacs group p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all relative overflow-hidden">
+                                <YellowBorderBeam rx={12} />
                                 <h3 className="font-display font-bold text-[16px] text-[#402E6D] mb-2.5">{item.title}</h3>
                                 <p className="text-[13.5px] text-gray-600 leading-relaxed">{item.desc}</p>
                             </div>

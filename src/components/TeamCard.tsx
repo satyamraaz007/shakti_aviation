@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, MapPin } from 'lucide-react';
 import ImageWithFallback from '@/components/ImageWithFallback';
+import YellowBorderBeam from '@/components/YellowBorderBeam';
 import type { TeamMember } from '@/data/team';
 
 interface TeamCardProps {
@@ -11,7 +12,8 @@ export default function TeamCard({ member }: TeamCardProps) {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <article className="card-sacs overflow-hidden flex flex-col h-full">
+        <article className="card-sacs group overflow-hidden flex flex-col h-full relative">
+            <YellowBorderBeam rx={16} />
             <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                 <ImageWithFallback
                     src={member.photo}

@@ -33,7 +33,7 @@ export default function SectionHeading({
                     <span className="h-px w-8 bg-gradient-to-r from-[#168DE2] to-transparent" />
                 </div>
             )}
-            <h2 className={`font-display font-bold text-3xl md:text-4xl lg:text-[44px] leading-[1.15] text-balance ${titleColor}`}>
+            <h2 className={`font-display font-bold text-2xl sm:text-3xl md:text-[34px] lg:text-[36px] leading-[1.2] text-balance ${titleColor}`}>
                 {title}
             </h2>
             {subtitle && (
