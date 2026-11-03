@@ -126,10 +126,10 @@ export default function CareersPage() {
                                 <Briefcase className="w-8 h-8 text-gray-400" />
                             </div>
                             <h3 className="font-display font-bold text-xl text-gray-900 mb-3">
-                                No Specific Vacancies Currently Listed
+                                Vacancies Currently Listed
                             </h3>
                             <p className="text-[15px] text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto">
-                                Currently, no specific vacancies are listed. Please send your profile to our team for
+                                Please send your profile to our team for
                                 future opportunities. We are always interested in connecting with experienced
                                 aviation professionals.
                             </p>
