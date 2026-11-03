@@ -68,19 +68,19 @@ export default function ServiceDetailPage() {
             />
 
             {/* Hero */}
-            <section className="relative pt-[120px] pb-16 lg:pt-[160px] lg:pb-20 overflow-hidden">
+            <section className="relative min-h-[400px] sm:min-h-[480px] md:min-h-[540px] lg:min-h-[620px] xl:min-h-[680px] flex items-center py-14 sm:py-16 lg:py-20 overflow-hidden">
                 {/* Background image */}
                 {service.image && (
                     <div className="absolute inset-0 select-none pointer-events-none">
                         <ImageWithFallback
                             src={service.image}
                             alt={`${service.title} background`}
-                            className="w-full h-full object-cover scale-[1.02] transform-gpu"
+                            className="w-full h-full object-cover object-center"
                             loading="eager"
                         />
-                        {/* Multi-stage gradient overlay: deep purple/navy left mask for maximum text contrast, gentle vignette, bottom fade */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#170F28]/95 via-[#2A1F4A]/85 md:via-[#2A1F4A]/80 to-[#2A1F4A]/60" />
-                        <div className="absolute inset-0 bg-gradient-to-b from-[#140C24]/80 via-transparent to-[#2A1F4A]/95" />
+                        {/* Clean cinematic vignette for full resolution & color clarity */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
                     </div>
                 )}
 
@@ -104,9 +104,9 @@ export default function ServiceDetailPage() {
                         <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[52px] leading-[1.1] text-white text-balance drop-shadow-sm">
                             {service.title}
                         </h1>
-                        <p className="mt-5 text-base md:text-lg text-white/85 leading-relaxed max-w-2xl text-pretty drop-shadow-xs">
+                        {/* <p className="mt-5 text-base md:text-lg text-white/85 leading-relaxed max-w-2xl text-pretty drop-shadow-xs">
                             {service.shortDescription}
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </section>

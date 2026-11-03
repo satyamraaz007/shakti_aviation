@@ -6,23 +6,23 @@ import heroBg from "@/assets/hero_airport.png";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[100vh] flex items-center overflow-hidden">
-            {/* Background image with slow cinematic zoom (10-15s Ken Burns effect) */}
+        <section className="relative min-h-[calc(100vh-72px)] sm:min-h-[calc(100vh-76px)] lg:min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
+            {/* Background image */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-                <div className="w-full h-full animate-hero-bg">
+                <div className="w-full h-full">
                     <ImageWithFallback
                         src={heroBg}
                         alt="Airport runway at sunset with golden sky"
-                        className="w-full h-full object-cover scale-[1.02]"
+                        className="w-full h-full object-cover object-center"
                         loading="eager"
                     />
                 </div>
 
-                {/* Subtle dark gradient overlays for enhanced text readability */}
+                {/* Subtle dark gradient overlays for enhanced text readability while preserving full resolution clarity */}
                 {/* 1. Left-to-right directional gradient protecting the content column */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#000e1f]/95 via-[#001730]/80 md:via-[#001730]/65 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#000e1f]/85 via-[#001730]/60 md:via-[#001730]/35 to-transparent" />
                 {/* 2. Top-to-bottom vignette darkening navbar area and grounding bottom section */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#001026]/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#001026]/80" />
             </div>
 
             {/* Aviation grid overlay */}
@@ -34,7 +34,7 @@ export default function Hero() {
             </div>
 
             {/* Content with orchestrated cinematic entrance */}
-            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-8 lg:pl-8 lg:pr-12 xl:pl-10 relative z-10 pt-32 pb-20">
+            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-8 lg:pl-8 lg:pr-12 xl:pl-10 relative z-10 pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20">
                 <div className="max-w-4xl">
                     {/* Eyebrow badge */}
                     <div className="flex items-center gap-3 mb-6 animate-hero-eyebrow">

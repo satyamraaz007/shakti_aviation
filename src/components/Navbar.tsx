@@ -47,10 +47,10 @@ export default function Navbar() {
             </a>
 
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${scrolled ? 'shadow-sm' : ''
+                className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${scrolled ? 'shadow-sm' : ''
                     }`}
             >
-                <nav className="container-sacs flex items-center justify-between h-[72px] lg:h-[80px]" aria-label="Main navigation">
+                <nav className="container-sacs flex items-center justify-between min-h-[72px] sm:min-h-[76px] lg:min-h-[80px] py-1.5" aria-label="Main navigation">
                     {/* Logo */}
                     <Link
                         to="/"
@@ -60,7 +60,7 @@ export default function Navbar() {
                         <img
                             src={logo}
                             alt="SACS Aviation Consultancy Services"
-                            className="h-[5rem] w-auto object-contain"
+                            className="h-14 sm:h-16 lg:h-[5rem] max-w-[210px] sm:max-w-[260px] lg:max-w-none w-auto object-contain"
                         />
                     </Link>
 

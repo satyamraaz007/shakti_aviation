@@ -5,6 +5,7 @@ import SectionHeading from '@/components/SectionHeading';
 import ContactForm from '@/components/ContactForm';
 import YellowBorderBeam from '@/components/YellowBorderBeam';
 import { siteInfo } from '@/data/siteInfo';
+import ContactUsImg from '@/assets/contact_us.jpg'
 
 export default function ContactPage() {
     const mapsQuery = encodeURIComponent(
@@ -45,7 +46,7 @@ export default function ContactPage() {
                 eyebrow="Get in Touch"
                 title="Contact SACS"
                 subtitle="Reach out to our team for consultancy enquiries, project discussions or general information. We respond to all genuine enquiries at the earliest."
-                image="https://images.pexels.com/photos/33860211/pexels-photo-33860211.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&dpr=1"
+                image={ContactUsImg}
                 imageAlt="Modern airport terminal architecture interior"
                 breadcrumbs={[{ label: 'Contact' }]}
             />

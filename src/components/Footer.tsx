@@ -47,16 +47,7 @@ export default function Footer() {
                             safety, security and technical expertise to deliver consultancy and implementation
                             solutions across India and international markets.
                         </p>
-                        <div className="space-y-2.5">
-                            <div className="flex items-start gap-2.5 text-[13.5px] text-blue-50/95">
-                                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#38BDF8]" />
-                                <span className="leading-relaxed">
-                                    {siteInfo.address.line1}, {siteInfo.address.line2},<br />
-                                    {siteInfo.address.line3},<br />
-                                    {siteInfo.address.city} – {siteInfo.address.pincode}, {siteInfo.address.country}
-                                </span>
-                            </div>
-                        </div>
+
                     </div>
 
                     {/* Company links */}
@@ -101,23 +92,8 @@ export default function Footer() {
 
                     {/* Useful links + contact */}
                     <div>
-                        <h3 className="text-[13px] font-bold uppercase tracking-[0.14em] text-[#38BDF8] mb-5">Useful Links</h3>
-                        <ul className="space-y-2.5 max-h-[200px] overflow-y-auto pr-2">
-                            {usefulLinks.slice(0, 8).map((link) => (
-                                <li key={link.url}>
-                                    <a
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-[13px] text-blue-100 hover:text-white transition-colors"
-                                    >
-                                        <ExternalLink className="w-3 h-3 flex-shrink-0 text-[#38BDF8]" />
-                                        {link.label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="mt-4 pt-4 border-t border-sky-400/20 space-y-2.5">
+                        <h3 className="text-[13px] font-bold uppercase tracking-[0.14em] text-[#38BDF8] mb-5">Contact Us</h3>
+                        <div className="mt-4 space-y-2.5">
                             {siteInfo.phones.slice(0, 2).map((phone) => (
                                 <a
                                     key={phone}
@@ -135,6 +111,17 @@ export default function Footer() {
                                 <Mail className="w-3.5 h-3.5 text-[#38BDF8]" />
                                 <span>{siteInfo.email}</span>
                             </a>
+
+                            <div className="space-y-2.5">
+                                <div className="flex items-start gap-2.5 text-[13.5px] text-blue-50/95">
+                                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#38BDF8]" />
+                                    <span className="leading-relaxed">
+                                        {siteInfo.address.line1}, {siteInfo.address.line2},<br />
+                                        {siteInfo.address.line3},<br />
+                                        {siteInfo.address.city} – {siteInfo.address.pincode}, {siteInfo.address.country}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
