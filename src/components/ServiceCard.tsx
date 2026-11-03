@@ -21,7 +21,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
     return (
         <Link
             to={`/services/${service.slug}`}
-            className="group relative bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(234,179,8,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full overflow-hidden"
+            className="card-sacs group relative bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(234,179,8,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full overflow-hidden"
         >
             <YellowBorderBeam rx={16} />
             {/* Top Image with Overlapping Circular Badge */}

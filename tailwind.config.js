@@ -5,7 +5,9 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
-                display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                display: ['"Times New Roman"', 'Times', 'serif'],
+                heading: ['"Times New Roman"', 'Times', 'serif'],
+                serif: ['"Times New Roman"', 'Times', 'serif'],
             },
             colors: {
                 sacs: {

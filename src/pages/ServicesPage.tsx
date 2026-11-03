@@ -6,6 +6,7 @@ import SectionHeading from '@/components/SectionHeading';
 import ServiceCard from '@/components/ServiceCard';
 import CTASection from '@/components/CTASection';
 import { services } from '@/data/services';
+import service_hero from '@/assets/services_hero.png'
 
 export default function ServicesPage() {
     return (
@@ -18,9 +19,9 @@ export default function ServicesPage() {
 
             <PageHero
                 eyebrow="Our Services"
-                title="Integrated Aviation & Infrastructure Solutions"
+                title="Our Aviation Consultancy Services"
                 subtitle="Specialized consultancy, technical services and implementation support for aviation, infrastructure and security environments delivered by senior aviation professionals."
-                image="https://images.pexels.com/photos/4318372/pexels-photo-4318372.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&dpr=1"
+                image={service_hero}
                 imageAlt="Modern airport terminal interior architecture"
                 breadcrumbs={[{ label: 'Services' }]}
             />

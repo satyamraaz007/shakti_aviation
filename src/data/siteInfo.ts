@@ -6,7 +6,7 @@ export const siteInfo = {
     tagline: 'Aviation • Infrastructure • Consultancy',
     established: 2005,
     address: {
-        line1: '#544, DLF Prime Towers',
+        line1: '#537, DLF Prime Towers',
         line2: 'F – 79 & 80',
         line3: 'Okhla Industrial Area Phase – 1',
         city: 'New Delhi',
@@ -15,7 +15,7 @@ export const siteInfo = {
         country: 'India',
     },
     officeTimings: 'Monday to Friday, 9:00 AM – 5:30 PM',
-    phones: ['+91-9773944770', '+91-9810789223', '+91-8860948094', '+91-11-41112778'],
+    phones: ['+91-9773944770', '+91-9810789223', '+91-11-41112778'],
     email: 'info@saktiaviation.com',
     social: {
         linkedin: '#',

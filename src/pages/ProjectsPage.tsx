@@ -23,7 +23,7 @@ export default function ProjectsPage() {
 
             <PageHero
                 eyebrow="Our Work"
-                title="Projects & Industry Experience"
+                title="Airport & Aviation Consultancy Projects"
                 subtitle="A cross-section of consultancy assignments spanning airport development, CNS/ATM technical studies, aeronautical studies, NOC consultancy and international aviation projects."
                 image="https://images.pexels.com/photos/12858453/pexels-photo-12858453.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&dpr=1"
                 imageAlt="Aerial view of airport runway and terminal area at twilight"
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Project Portfolio"
-                        title="Consultancy Assignments Across India & International Markets"
+                        title="Airport Projects in India & Abroad"
                         subtitle="Filter by category to explore specific types of aviation consultancy projects delivered by our team."
                         align="center"
                         className="mb-10"
@@ -93,7 +93,7 @@ export default function ProjectsPage() {
             </section>
 
             <CTASection
-                title="Have a Project in Mind?"
+                title="Contact Us for Your Aviation Project"
                 subtitle="Our team has the aviation expertise to support your next airport, infrastructure or regulatory consultancy requirement."
                 primaryLabel="Discuss Your Requirement"
                 primaryPath="/contact"

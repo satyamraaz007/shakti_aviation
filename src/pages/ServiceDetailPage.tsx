@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, Check, Phone } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check, Phone, ChevronDown, HelpCircle } from 'lucide-react';
 import SEO from '@/components/SEO';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SectionHeading from '@/components/SectionHeading';
@@ -12,6 +13,8 @@ export default function ServiceDetailPage() {
     const { slug } = useParams<{ slug: string }>();
     const service = slug ? getService(slug) : undefined;
     const deliverablesRef = useScrollReveal<HTMLDivElement>();
+    const faqRef = useScrollReveal<HTMLDivElement>();
+    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
     if (!service) {
         return <Navigate to="/services" replace />;
@@ -32,9 +35,28 @@ export default function ServiceDetailPage() {
         areaServed: ['India', 'International'],
     };
 
-    // Related services (same index +/- 1)
+    const faqJsonLd = service.faqs?.length
+        ? {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: service.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.answer,
+                },
+            })),
+        }
+        : undefined;
+
+    // Discuss Your Aviation Project (same index +/- 1)
     const currentIndex = services.findIndex((s) => s.slug === service.slug);
     const related = services.filter((_, i) => Math.abs(i - currentIndex) <= 2 && i !== currentIndex).slice(0, 3);
+
+    const toggleFaq = (index: number) => {
+        setOpenFaqIndex((prev) => (prev === index ? null : index));
+    };
 
     return (
         <>
@@ -42,13 +64,28 @@ export default function ServiceDetailPage() {
                 title={`${service.title} | Aviation Consultancy`}
                 description={service.shortDescription}
                 path={`/services/${service.slug}`}
-                jsonLd={serviceJsonLd}
+                jsonLd={faqJsonLd ? [serviceJsonLd, faqJsonLd] : serviceJsonLd}
             />
 
             {/* Hero */}
-            <section className="relative pt-[120px] pb-16 lg:pt-[160px] lg:pb-20 overflow-hidden bg-[#2A1F4A]">
-                <div className="absolute inset-0 aviation-grid opacity-20" aria-hidden="true" />
-                <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full border border-white/5" aria-hidden="true" />
+            <section className="relative pt-[120px] pb-16 lg:pt-[160px] lg:pb-20 overflow-hidden">
+                {/* Background image */}
+                {service.image && (
+                    <div className="absolute inset-0 select-none pointer-events-none">
+                        <ImageWithFallback
+                            src={service.image}
+                            alt={`${service.title} background`}
+                            className="w-full h-full object-cover scale-[1.02] transform-gpu"
+                            loading="eager"
+                        />
+                        {/* Multi-stage gradient overlay: deep purple/navy left mask for maximum text contrast, gentle vignette, bottom fade */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#170F28]/95 via-[#2A1F4A]/85 md:via-[#2A1F4A]/80 to-[#2A1F4A]/60" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#140C24]/80 via-transparent to-[#2A1F4A]/95" />
+                    </div>
+                )}
+
+                <div className="absolute inset-0 aviation-grid opacity-20 pointer-events-none" aria-hidden="true" />
+                <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full border border-white/5 pointer-events-none" aria-hidden="true" />
 
                 <div className="container-sacs relative z-10">
                     <div className="mb-6">
@@ -56,15 +93,18 @@ export default function ServiceDetailPage() {
                     </div>
                     <div className="max-w-3xl">
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="flex items-center justify-center w-14 h-14 rounded-xl bg-[#A34354]/20">
+                            <span className="flex items-center justify-center w-14 h-14 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-inner">
                                 <Icon className="w-7 h-7 text-[#E0BEC8]" />
                             </span>
-                            <span className="eyebrow-light">Service</span>
+                            <div className="flex items-center gap-2.5">
+                                <span className="h-px w-6 bg-gradient-to-r from-[#8CCBFF] to-transparent" />
+                                <span className="eyebrow-light text-[#8CCBFF]">Service</span>
+                            </div>
                         </div>
-                        <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[52px] leading-[1.1] text-white text-balance">
+                        <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[52px] leading-[1.1] text-white text-balance drop-shadow-sm">
                             {service.title}
                         </h1>
-                        <p className="mt-5 text-base md:text-lg text-white/70 leading-relaxed max-w-2xl text-pretty">
+                        <p className="mt-5 text-base md:text-lg text-white/85 leading-relaxed max-w-2xl text-pretty drop-shadow-xs">
                             {service.shortDescription}
                         </p>
                     </div>
@@ -87,7 +127,7 @@ export default function ServiceDetailPage() {
 
                             {/* Deliverables */}
                             <div ref={deliverablesRef} className="reveal mt-12">
-                                <h2 className="font-display font-bold text-xl text-gray-900 mb-6">Key Deliverables</h2>
+                                <h2 className="font-display font-bold text-xl text-gray-900 mb-6">Project Consultancy Deliverables</h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     {service.deliverables.map((item) => (
                                         <div
@@ -151,10 +191,10 @@ export default function ServiceDetailPage() {
                 </div>
             </section>
 
-            {/* Related services */}
+            {/* Discuss Your Aviation Project */}
             <section className="py-16 lg:py-20 bg-section-alt">
                 <div className="container-sacs">
-                    <h2 className="font-display font-bold text-2xl text-gray-900 mb-8">Related Services</h2>
+                    <h2 className="font-display font-bold text-2xl text-gray-900 mb-8 text-center">Related Other Services</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {related.map((s) => {
                             const RelatedIcon = s.icon;
@@ -177,13 +217,109 @@ export default function ServiceDetailPage() {
             </section>
 
             <CTASection
-                title="Ready to Move Forward?"
+                title="Discuss Your Aviation Project"
                 subtitle={`Contact our team to discuss your ${service.title.toLowerCase()} requirement in detail.`}
                 primaryLabel="Contact SACS"
                 primaryPath="/contact"
                 secondaryLabel="View Our Projects"
                 secondaryPath="/projects"
             />
+
+            {/* 5 FAQs just below the Discuss Your Aviation Project section */}
+            {service.faqs && service.faqs.length > 0 && (
+                <section className="py-20 lg:py-28 bg-[#F8FAFC] border-t border-gray-200/60">
+                    <div className="container-sacs">
+                        <SectionHeading
+                            eyebrow="Frequently Asked Questions"
+                            title={`Frequently Asked Questions on ${service.title}`}
+                            subtitle={`Key questions and expert answers regarding our ${service.title.toLowerCase()} consultancy, regulatory processes, and implementation.`}
+                            className="mb-12"
+                        />
+
+                        <div ref={faqRef} className="reveal max-w-4xl mx-auto space-y-4">
+                            {service.faqs.map((faq, index) => {
+                                const isOpen = openFaqIndex === index;
+                                return (
+                                    <div
+                                        key={faq.question}
+                                        className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                                            ? 'bg-white border-[#168DE2]/40 shadow-md shadow-[#168DE2]/5'
+                                            : 'bg-white border-gray-200/80 hover:border-gray-300 hover:shadow-xs'
+                                            }`}
+                                    >
+                                        <button
+                                            type="button"
+                                            onClick={() => toggleFaq(index)}
+                                            className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left transition-colors cursor-pointer group"
+                                            aria-expanded={isOpen}
+                                            aria-controls={`faq-answer-${index}`}
+                                        >
+                                            <div className="flex items-start sm:items-center gap-3.5">
+                                                <span
+                                                    className={`flex-shrink-0 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs sm:text-sm font-bold transition-colors ${isOpen
+                                                        ? 'bg-[#168DE2] text-white'
+                                                        : 'bg-[#402E6D]/8 text-[#402E6D] group-hover:bg-[#168DE2]/10 group-hover:text-[#168DE2]'
+                                                        }`}
+                                                >
+                                                    0{index + 1}
+                                                </span>
+                                                <h3
+                                                    className={`font-display font-semibold text-[16px] sm:text-[17px] leading-snug transition-colors ${isOpen
+                                                        ? 'text-[#168DE2]'
+                                                        : 'text-gray-900 group-hover:text-[#168DE2]'
+                                                        }`}
+                                                >
+                                                    {faq.question}
+                                                </h3>
+                                            </div>
+                                            <span
+                                                className={`flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${isOpen
+                                                    ? 'bg-[#168DE2] text-white border-[#168DE2] rotate-180'
+                                                    : 'bg-gray-50 text-gray-500 border-gray-200 group-hover:border-[#168DE2]/40 group-hover:text-[#168DE2]'
+                                                    }`}
+                                            >
+                                                <ChevronDown className="w-4 h-4" />
+                                            </span>
+                                        </button>
+
+                                        {isOpen && (
+                                            <div
+                                                id={`faq-answer-${index}`}
+                                                className="px-5 sm:px-6 pb-6 pt-1 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 border-t border-gray-100/80 animate-in fade-in duration-200"
+                                            >
+                                                <div className="pl-10 sm:pl-11 pr-2">
+                                                    {faq.answer}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Quick enquiry banner under FAQ */}
+                        <div className="mt-12 max-w-4xl mx-auto rounded-2xl bg-white p-6 sm:p-8 border border-gray-200/80 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+                            <div className="flex items-center gap-4 text-center sm:text-left">
+                                <div className="hidden sm:flex flex-shrink-0 w-12 h-12 rounded-xl bg-[#168DE2]/10 items-center justify-center text-[#168DE2]">
+                                    <HelpCircle className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h4 className="font-display font-bold text-gray-900 text-[16px]">
+                                        Have a specific query about {service.title.toLowerCase()}?
+                                    </h4>
+                                    <p className="text-[13.5px] text-gray-600 mt-1">
+                                        Our senior aviation consultants can assess your technical requirements directly.
+                                    </p>
+                                </div>
+                            </div>
+                            <Link to="/contact" className="btn-primary flex-shrink-0 whitespace-nowrap text-[14px] px-6 py-3">
+                                Contact Our Team
+                                <ArrowRight className="w-4 h-4" />
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            )}
         </>
     );
 }

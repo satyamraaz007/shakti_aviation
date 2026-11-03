@@ -34,17 +34,6 @@ export const projects: ProjectItem[] = [
     },
     {
         id: '3',
-        name: 'New Libreville Airport',
-        location: 'Libreville, Gabon',
-        year: '2017',
-        category: 'Airport Development',
-        description:
-            'Detailed master plan review for New Libreville Airport, Gabon, covering infrastructure planning, operational layout and technical feasibility inputs.',
-        image: 'https://images.pexels.com/photos/14018325/pexels-photo-14018325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        imageAlt: 'Modern airport terminal interior with architectural design',
-    },
-    {
-        id: '4',
         name: 'Shirdi International Airport',
         location: 'Maharashtra, India',
         year: '2019',
@@ -55,7 +44,7 @@ export const projects: ProjectItem[] = [
         imageAlt: 'Aerial view of airport runway and apron area',
     },
     {
-        id: '5',
+        id: '4',
         name: 'Pokhara Regional International Airport',
         location: 'Pokhara, Nepal',
         year: '2019',
@@ -66,7 +55,7 @@ export const projects: ProjectItem[] = [
         imageAlt: 'Airplanes on runway with mountain backdrop',
     },
     {
-        id: '6',
+        id: '5',
         name: 'Flight Approach Safety & Efficiency Study',
         location: 'India (Multiple Airports)',
         year: '2022',
@@ -77,7 +66,7 @@ export const projects: ProjectItem[] = [
         imageAlt: 'Airplane wing during landing approach',
     },
     {
-        id: '7',
+        id: '6',
         name: 'Rajkot Greenfield International Airport',
         location: 'Hirasar, Gujarat, India',
         year: '2022',

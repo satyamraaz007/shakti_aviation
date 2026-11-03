@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, Plane, Phone } from 'lucide-react';
 import { navLinks } from '@/data/siteInfo';
 import { services } from '@/data/services';
 import { siteInfo } from '@/data/siteInfo';
-import logo from '@/assets//sacs_logo.png';
+import logo from '@/assets/sacs_logo.png';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -37,9 +37,6 @@ export default function Navbar() {
         };
     }, [mobileOpen]);
 
-    const isHome = location.pathname === '/';
-    const isTransparent = isHome && !scrolled;
-
     return (
         <>
             <a
@@ -50,9 +47,7 @@ export default function Navbar() {
             </a>
 
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isTransparent
-                    ? 'bg-yellow-400/20 backdrop-blur-sm'
-                    : 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${scrolled ? 'shadow-sm' : ''
                     }`}
             >
                 <nav className="container-sacs flex items-center justify-between h-[72px] lg:h-[80px]" aria-label="Main navigation">
@@ -65,7 +60,7 @@ export default function Navbar() {
                         <img
                             src={logo}
                             alt="SACS Aviation Consultancy Services"
-                            className="h-10 w-auto object-contain"
+                            className="h-[5rem] w-auto object-contain"
                         />
                     </Link>
 
@@ -81,14 +76,11 @@ export default function Navbar() {
                                 >
                                     <Link
                                         to={link.path}
-                                        className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors ${isTransparent
-                                            ? 'text-white/90 hover:text-white hover:bg-white/10'
-                                            : 'text-gray-700 hover:text-[#402E6D] hover:bg-gray-50'
-                                            } ${location.pathname.startsWith('/services') ? (isTransparent ? 'text-white' : 'text-[#402E6D]') : ''
+                                        className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors text-black hover:text-black hover:bg-gray-100 ${location.pathname.startsWith('/services') ? 'font-semibold bg-gray-50' : ''
                                             }`}
                                     >
                                         {link.label}
-                                        <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                                        <ChevronDown className={`w-4 h-4 text-black transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                                     </Link>
 
                                     {/* Mega menu */}
@@ -131,10 +123,7 @@ export default function Navbar() {
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors ${isTransparent
-                                        ? 'text-white/90 hover:text-white hover:bg-white/10'
-                                        : 'text-gray-700 hover:text-[#402E6D] hover:bg-gray-50'
-                                        } ${location.pathname === link.path ? (isTransparent ? 'text-white' : 'text-[#402E6D]') : ''
+                                    className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors text-black hover:text-black hover:bg-gray-100 ${location.pathname === link.path ? 'font-semibold bg-gray-50' : ''
                                         }`}
                                 >
                                     {link.label}
@@ -151,12 +140,11 @@ export default function Navbar() {
                         </Link>
                         <button
                             onClick={() => setMobileOpen(true)}
-                            className={`lg:hidden p-2 rounded-lg transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'
-                                }`}
+                            className="lg:hidden p-2 rounded-lg transition-colors text-black hover:bg-gray-100"
                             aria-label="Open menu"
                             aria-expanded={mobileOpen}
                         >
-                            <Menu className="w-6 h-6" />
+                            <Menu className="w-6 h-6 text-black" />
                         </button>
                     </div>
                 </nav>
@@ -173,13 +161,13 @@ export default function Navbar() {
                         }`}
                 >
                     <div className="flex items-center justify-between p-5 border-b border-gray-100">
-                        <span className="font-display font-bold text-[17px] text-gray-900">Menu</span>
+                        <span className="font-display font-bold text-[17px] text-black">Menu</span>
                         <button
                             onClick={() => setMobileOpen(false)}
                             className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
                             aria-label="Close menu"
                         >
-                            <X className="w-5 h-5 text-gray-700" />
+                            <X className="w-5 h-5 text-black" />
                         </button>
                     </div>
 
@@ -189,20 +177,20 @@ export default function Navbar() {
                                 <div key={link.path}>
                                     <button
                                         onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-[15px] font-medium transition-colors ${location.pathname.startsWith('/services')
-                                            ? 'text-[#402E6D] bg-[#402E6D]/5'
-                                            : 'text-gray-700 hover:bg-gray-50'
+                                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-[15px] font-medium transition-colors text-black hover:bg-gray-50 ${location.pathname.startsWith('/services')
+                                            ? 'font-semibold bg-gray-100'
+                                            : ''
                                             }`}
                                         aria-expanded={mobileServicesOpen}
                                     >
                                         {link.label}
-                                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                                        <ChevronDown className={`w-4 h-4 text-black transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                                     </button>
                                     {mobileServicesOpen && (
                                         <div className="ml-3 mt-1 mb-2 border-l border-gray-100 pl-3">
                                             <Link
                                                 to="/services"
-                                                className="block px-4 py-2.5 text-[14px] font-semibold text-[#A34354] hover:bg-gray-50 rounded-lg transition-colors"
+                                                className="block px-4 py-2.5 text-[14px] font-semibold text-black hover:bg-gray-50 rounded-lg transition-colors"
                                             >
                                                 All Services →
                                             </Link>
@@ -210,7 +198,7 @@ export default function Navbar() {
                                                 <Link
                                                     key={service.slug}
                                                     to={`/services/${service.slug}`}
-                                                    className="block px-4 py-2.5 text-[14px] text-gray-600 hover:bg-gray-50 rounded-lg transition-colors"
+                                                    className="block px-4 py-2.5 text-[14px] text-black/80 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                                                 >
                                                     {service.title}
                                                 </Link>
@@ -222,9 +210,9 @@ export default function Navbar() {
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className={`block px-4 py-3 rounded-lg text-[15px] font-medium transition-colors ${location.pathname === link.path
-                                        ? 'text-[#402E6D] bg-[#402E6D]/5'
-                                        : 'text-gray-700 hover:bg-gray-50'
+                                    className={`block px-4 py-3 rounded-lg text-[15px] font-medium transition-colors text-black hover:bg-gray-50 ${location.pathname === link.path
+                                        ? 'font-semibold bg-gray-100'
+                                        : ''
                                         }`}
                                 >
                                     {link.label}

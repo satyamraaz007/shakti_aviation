@@ -10,6 +10,8 @@ import StatCard from '@/components/StatCard';
 import CTASection from '@/components/CTASection';
 import ImageWithFallback from '@/components/ImageWithFallback';
 import YellowBorderBeam from '@/components/YellowBorderBeam';
+import RadarBackground from '@/components/RadarBackground';
+import ClientCarousel from '@/components/ClientCarousel';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { services } from '@/data/services';
 import { projects } from '@/data/projects';
@@ -25,13 +27,13 @@ const orgJsonLd = {
     foundedDate: '2005',
     address: {
         '@type': 'PostalAddress',
-        streetAddress: '#544, DLF Prime Towers, F – 79 & 80, Okhla Industrial Area Phase – 1',
+        streetAddress: '#537, DLF Prime Towers, F – 79 & 80, Okhla Industrial Area Phase – 1',
         addressLocality: 'New Delhi',
         addressRegion: 'Delhi',
         postalCode: '110020',
         addressCountry: 'IN',
     },
-    telephone: ['+91-9773944770', '+91-9810789223', '+91-8860948094', '+91-11-41112778'],
+    telephone: ['+91-9773944770', '+91-9810789223', '+91-11-41112778'],
     description:
         'Aviation consultancy, airport development, airport operations, CNS/ATM, safety management, security, surveillance and aviation infrastructure solutions in India and international markets.',
     knowsAbout: [
@@ -61,7 +63,7 @@ const professionalServiceJsonLd = {
     priceRange: '$$',
     address: {
         '@type': 'PostalAddress',
-        streetAddress: '#544, DLF Prime Towers, F – 79 & 80, Okhla Industrial Area Phase – 1',
+        streetAddress: '#537, DLF Prime Towers, F – 79 & 80, Okhla Industrial Area Phase – 1',
         addressLocality: 'New Delhi',
         addressRegion: 'Delhi',
         postalCode: '110020',
@@ -74,13 +76,15 @@ const professionalServiceJsonLd = {
 
 export default function HomePage() {
     const aboutRef = useScrollReveal<HTMLDivElement>();
+    const statsRef = useScrollReveal<HTMLDivElement>();
+    const servicesRef = useScrollReveal<HTMLDivElement>();
     const expertiseRef = useScrollReveal<HTMLDivElement>();
     const nocRef = useScrollReveal<HTMLDivElement>();
+    const projectsRef = useScrollReveal<HTMLDivElement>();
     const intlRef = useScrollReveal<HTMLDivElement>();
     const clientsRef = useScrollReveal<HTMLDivElement>();
     const teamPreviewRef = useScrollReveal<HTMLDivElement>();
     const knowledgeRef = useScrollReveal<HTMLDivElement>();
-    const contactPreviewRef = useScrollReveal<HTMLDivElement>();
 
     const expertiseBlocks = [
         {
@@ -117,17 +121,16 @@ export default function HomePage() {
             <Hero />
 
             {/* Trust / Introduction */}
-            <section className="py-20 lg:py-28">
+            <section className="py-20 lg:py-28 overflow-hidden">
                 <div className="container-sacs">
+                    <SectionHeading
+                        eyebrow="About SACS"
+                        title="About Sakthi Aviation Consultancy Services."
+                        subtitle="Established in 2005 by retired senior civil aviation executives, delivering trusted consultancy across India and abroad."
+                        className="mb-14"
+                    />
                     <div ref={aboutRef} className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div>
-                            <div className="flex items-center gap-3 mb-5">
-                                <span className="eyebrow">About SACS</span>
-                                <span className="h-px w-8 bg-gradient-to-r from-[#168DE2] to-transparent" />
-                            </div>
-                            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] leading-[1.22] text-gray-900 mb-5">
-                                Decades of Aviation Expertise. Built for Complex Projects.
-                            </h2>
+                        <div className="reveal-slide-left">
                             <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-gray-600">
                                 <p>
                                     Established in 2005, Sakthi Aviation Consultancy Services was founded by retired
@@ -165,7 +168,8 @@ export default function HomePage() {
                             </Link>
                         </div>
 
-                        <div className="relative">
+                        {/* Image slides in from the right */}
+                        <div className="reveal-slide-right relative">
                             <div className="image-card-animated relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg group">
                                 <YellowBorderBeam rx={16} />
                                 <ImageWithFallback
@@ -174,8 +178,13 @@ export default function HomePage() {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="card-sacs absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] border border-gray-100 group">
+                            <div className="card-sacs absolute -bottom-5 left-3 sm:-bottom-6 sm:-left-6 bg-white rounded-xl shadow-lg p-4 sm:p-5 max-w-[210px] sm:max-w-[240px] border border-gray-100 group">
                                 <YellowBorderBeam rx={12} />
+                                {/* Subtle radar pulse behind milestone badge */}
+                                <div className="absolute -top-3 -right-3 w-16 h-16 pointer-events-none overflow-visible flex items-center justify-center">
+                                    <span className="absolute w-8 h-8 rounded-full border border-[#168DE2]/35 animate-radar-ring-1" />
+                                    <span className="absolute w-8 h-8 rounded-full border border-[#8CCBFF]/25 animate-radar-ring-2" />
+                                </div>
                                 <p className="font-display font-bold text-3xl text-[#402E6D]">2005</p>
                                 <p className="text-[13px] text-gray-500 mt-1">Established by senior aviation professionals</p>
                             </div>
@@ -184,11 +193,13 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Statistics */}
+            {/* Statistics with Airport radar-style background */}
             <section className="bg-[#052640] py-16 lg:py-20 relative overflow-hidden">
                 <div className="absolute inset-0 aviation-grid opacity-15" aria-hidden="true" />
+                {/* Airport radar-style circles expanding and fading behind statistics */}
+                <RadarBackground className="opacity-45" />
                 <div className="container-sacs relative z-10">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+                    <div ref={statsRef} className="reveal-stagger grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
                         {stats.map((stat, index) => (
                             <StatCard key={index} {...stat} index={index} />
                         ))}
@@ -197,18 +208,19 @@ export default function HomePage() {
             </section>
 
             {/* Services */}
-            <section className="py-20 lg:py-28 bg-section-alt">
+            <section className="py-20 lg:py-28 bg-section-alt overflow-hidden">
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Our Services"
-                        title="Integrated Aviation & Infrastructure Solutions"
+                        title="Our Aviation Consultancy Services"
                         subtitle="Specialized consultancy, technical services and implementation support for aviation, infrastructure and security environments."
                         align="center"
                         className="mb-14"
                     />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {services.map((service) => (
-                            <ServiceCard key={service.slug} service={service} />
+                    {/* Service cards enter with slight upward movement and staggered timing */}
+                    <div ref={servicesRef} className="reveal-stagger-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {services.map((service, index) => (
+                            <ServiceCard key={service.slug} service={service} index={index} />
                         ))}
                     </div>
                     <div className="mt-12 text-center">
@@ -227,16 +239,15 @@ export default function HomePage() {
                 <div className="absolute -left-20 -bottom-20 w-72 h-72 rounded-full border border-white/5" aria-hidden="true" />
 
                 <div className="container-sacs relative z-10">
-                    <div ref={expertiseRef} className="reveal">
-                        <SectionHeading
-                            eyebrow="Core Expertise"
-                            title="Where Aviation Knowledge Meets Engineering Execution"
-                            align="center"
-                            light
-                            className="mb-14"
-                        />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <SectionHeading
+                        eyebrow="Core Expertise"
+                        title="Airport Infrastructure, CNS/ATM & Safety Expertise"
+                        subtitle="Specialized technical domains covering airport infrastructure, CNS/ATM, safety management systems and regulatory clearance."
+                        light
+                        className="mb-14"
+                    />
+                    {/* Cards appear one after another with staggered timing */}
+                    <div ref={expertiseRef} className="reveal-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {expertiseBlocks.map((block) => {
                             const Icon = block.icon;
                             return (
@@ -260,11 +271,18 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* AAI / IAF / MoD NOC Consultancy */}
-            <section className="py-20 lg:py-28">
+            {/* Height Clearance & AAI NOC Consultancy in India */}
+            <section className="py-20 lg:py-28 overflow-hidden">
                 <div className="container-sacs">
+                    <SectionHeading
+                        eyebrow="Specialized Consultancy"
+                        title="Height Clearance & NOC Consultancy (AAI, IAF, MoD)"
+                        subtitle="Aeronautical studies, technical evaluation and structural height NOC approvals with AAI, IAF and MoD."
+                        className="mb-14"
+                    />
                     <div ref={nocRef} className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div className="relative order-2 lg:order-1">
+                        {/* Image slides in from the left */}
+                        <div className="reveal-slide-left relative order-2 lg:order-1">
                             <div className="image-card-animated relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg group">
                                 <YellowBorderBeam rx={16} />
                                 <ImageWithFallback
@@ -276,14 +294,8 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        <div className="order-1 lg:order-2">
-                            <div className="flex items-center gap-3 mb-5">
-                                <span className="eyebrow">Specialized Consultancy</span>
-                                <span className="h-px w-8 bg-gradient-to-r from-[#A34354] to-transparent" />
-                            </div>
-                            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] leading-[1.22] text-gray-900 mb-5">
-                                Specialized Aviation Height Clearance & NOC Consultancy
-                            </h2>
+                        {/* Content slides in from the right */}
+                        <div className="reveal-slide-right order-1 lg:order-2">
                             <p className="text-[15px] md:text-[16px] leading-relaxed text-gray-600 mb-6">
                                 SACS has successfully undertaken projects relating to structural height clearance by
                                 the Airports Authority of India (AAI) and the Indian Air Force / Ministry of Defence
@@ -299,7 +311,7 @@ export default function HomePage() {
                                     </div>
                                 ))}
                             </div>
-                            <Link to="/services/aai-iaf-mod-noc-consultancy" className="btn-primary">
+                            <Link to="/services/height-clearance-noc-consultancy" className="btn-primary">
                                 Discuss Height Clearance / NOC
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -309,16 +321,17 @@ export default function HomePage() {
             </section>
 
             {/* Featured Projects */}
-            <section className="py-20 lg:py-28 bg-section-alt">
+            <section className="py-20 lg:py-28 bg-section-alt overflow-hidden">
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Selected Work"
-                        title="Projects & Industry Experience"
+                        title="Airport & Aviation Consultancy Projects"
                         subtitle="A cross-section of consultancy assignments spanning airport development, CNS/ATM, aeronautical studies and international aviation projects."
                         align="center"
                         className="mb-14"
                     />
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {/* Projects appear with upward movement and staggered timing */}
+                    <div ref={projectsRef} className="reveal-stagger-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {projects.slice(0, 6).map((project) => (
                             <ProjectCard key={project.id} project={project} />
                         ))}
@@ -353,62 +366,55 @@ export default function HomePage() {
                     <div ref={intlRef} className="reveal">
                         <SectionHeading
                             eyebrow="Global Reach"
-                            title="International Consultancy Experience"
-                            subtitle="SACS has delivered aviation consultancy beyond India, supporting airport projects in international markets."
+                            title="International Airport Projects (Gabon, Nepal)"
+                            subtitle="SACS has delivered aviation International Aviation Consultancy, supporting airport projects in international markets."
                             align="center"
                             light
                             className="mb-12"
                         />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {[
-                            {
-                                title: 'New Libreville Airport, Gabon',
-                                desc: 'CNS equipment evaluation consultancy and master plan review for New Libreville Airport (2017).',
-                                location: 'Libreville, Gabon',
-                            },
-                            {
-                                title: 'Pokhara Regional International Airport, Nepal',
-                                desc: 'Master plan review for Pokhara Regional International Airport (2019).',
-                                location: 'Pokhara, Nepal',
-                            },
-                        ].map((item) => (
-                            <div
-                                key={item.title}
-                                className="p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:bg-white/[0.06]"
-                            >
-                                {/* <Globe2 className="w-7 h-7 text-[#168DE2] mb-4" /> */}
-                                <h3 className="font-display font-bold text-[18px] text-white mb-2">{item.title}</h3>
-                                <div className="flex items-center gap-1.5 text-[13px] text-[#168DE2] mb-3">
-                                    <MapPin className="w-3.5 h-3.5" />
-                                    {item.location}
+                        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                            {[
+                                {
+                                    title: 'New Libreville Airport, Gabon',
+                                    desc: 'CNS equipment evaluation consultancy and master plan review for New Libreville Airport (2017).',
+                                    location: 'Libreville, Gabon',
+                                },
+                                {
+                                    title: 'Pokhara Regional International Airport, Nepal',
+                                    desc: 'Master plan review for Pokhara Regional International Airport (2019).',
+                                    location: 'Pokhara, Nepal',
+                                },
+                            ].map((item) => (
+                                <div
+                                    key={item.title}
+                                    className="card-sacs group relative p-7 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:bg-white/[0.06] overflow-hidden"
+                                >
+                                    <YellowBorderBeam rx={16} />
+                                    <h3 className="font-display font-bold text-[18px] text-white mb-2">{item.title}</h3>
+                                    <div className="flex items-center gap-1.5 text-[13px] text-[#168DE2] mb-3">
+                                        <MapPin className="w-3.5 h-3.5" />
+                                        {item.location}
+                                    </div>
+                                    <p className="text-[14px] text-white/60 leading-relaxed">{item.desc}</p>
                                 </div>
-                                <p className="text-[14px] text-white/60 leading-relaxed">{item.desc}</p>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Clients / Organizations */}
-            <section className="py-20 lg:py-28">
+            <section className="py-20 lg:py-28 overflow-hidden">
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Our Clients"
-                        title="Selected Organizations & Clients"
+                        title="Our Clients"
                         subtitle="SACS has provided consultancy and technical services to organizations across infrastructure, real estate, energy, construction, aviation and government sectors."
                         align="center"
                         className="mb-14"
                     />
-                    <div ref={clientsRef} className="reveal-stagger grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100">
-                        {clients.map((client) => (
-                            <div
-                                key={client}
-                                className="bg-white px-6 py-8 flex items-center justify-center text-center min-h-[110px] hover:bg-gray-50 transition-colors"
-                            >
-                                <span className="text-[13.5px] font-semibold text-gray-700 leading-snug">{client}</span>
-                            </div>
-                        ))}
+                    <div ref={clientsRef} className="reveal">
+                        <ClientCarousel />
                     </div>
                     <p className="mt-6 text-center text-[13px] text-gray-400">
                         Client names are listed for reference. This should not be construed as an endorsement.
@@ -418,18 +424,18 @@ export default function HomePage() {
             </section>
 
             {/* Leadership / Team preview */}
-            <section className="py-20 lg:py-28 bg-section-alt">
+            <section className="py-20 lg:py-28 bg-section-alt overflow-hidden">
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Leadership"
-                        title="Experienced Aviation Professionals"
+                        title="Our Aviation Consultants"
                         subtitle="Our senior team brings decades of hands-on experience from AAI, DGCA, airport operations, CNS/ATM and aviation safety management."
                         align="center"
                         className="mb-14"
                     />
-                    <div ref={teamPreviewRef} className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div ref={teamPreviewRef} className="reveal-stagger-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {teamMembers.slice(0, 4).map((member) => (
-                            <TeamCard key={member.id} member={member} />
+                            <TeamCard key={member.id} member={member} compact />
                         ))}
                     </div>
                     <div className="mt-12 text-center">
@@ -442,16 +448,16 @@ export default function HomePage() {
             </section>
 
             {/* Knowledge & Publications */}
-            <section className="py-20 lg:py-28">
+            <section className="py-20 lg:py-28 overflow-hidden">
                 <div className="container-sacs">
                     <SectionHeading
                         eyebrow="Knowledge & Research"
-                        title="Knowledge, Research & Industry Contributions"
+                        title="Aviation Publications & Research"
                         subtitle="Publications and reports authored by our senior professionals, contributing to the body of knowledge in aviation and air navigation."
                         align="center"
                         className="mb-14"
                     />
-                    <div ref={knowledgeRef} className="reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div ref={knowledgeRef} className="reveal-stagger-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {publications.map((pub, index) => (
                             <div
                                 key={index}
@@ -477,7 +483,7 @@ export default function HomePage() {
 
             {/* CTA */}
             <CTASection
-                title="Have an Aviation Consultancy Requirement?"
+                title="Contact Our Aviation Consultants"
                 subtitle="From airport development to height clearance NOC and CNS/ATM consultancy, our team is ready to discuss your project."
                 primaryLabel="Talk to Our Experts"
                 primaryPath="/contact"

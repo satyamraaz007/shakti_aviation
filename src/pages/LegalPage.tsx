@@ -78,7 +78,7 @@ export default function LegalPage({ type }: LegalPageProps) {
                                     <h2 className="font-display font-bold text-xl text-gray-900 mb-3">6. Contact Us</h2>
                                     <p className="text-[15px] leading-relaxed text-gray-600">
                                         For questions about this Privacy Policy, please contact us at info@saktiaviation.com
-                                        or at our office address: #544, DLF Prime Towers, F – 79 & 80, Okhla Industrial Area
+                                        or at our office address: #537, DLF Prime Towers, F – 79 & 80, Okhla Industrial Area
                                         Phase – 1, New Delhi – 110020, India.
                                     </p>
                                 </section>

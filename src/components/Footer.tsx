@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { Plane, MapPin, Phone, ExternalLink, Mail } from 'lucide-react';
 import { siteInfo, usefulLinks } from '@/data/siteInfo';
 import { services } from '@/data/services';
-import footerBg from '@/assets/hero_airport.png';
+import footerBg from '@/assets/footer_img.png';
+import Logo from '@/assets/sacs_logo.png'
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -30,16 +31,16 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
                     {/* Company description */}
                     <div className="lg:col-span-1">
-                        <Link to="/" className="flex items-center gap-2.5 mb-5">
-                            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#168DE2] shadow-md shadow-[#168DE2]/30">
-                                <Plane className="w-5 h-5 text-white" />
-                            </span>
-                            <span className="flex flex-col leading-none">
-                                <span className="font-display font-bold text-[18px] text-white">SACS</span>
-                                <span className="text-[11px] font-semibold tracking-wider text-[#7DD3FC]">
-                                    Aviation Consultancy
-                                </span>
-                            </span>
+                        <Link
+                            to="/"
+                            className="flex items-center flex-shrink-0 mb-3"
+                            aria-label={`${siteInfo.name} home`}
+                        >
+                            <img
+                                src={Logo}
+                                alt="SACS Aviation Consultancy Services"
+                                className="h-10 w-auto object-contain"
+                            />
                         </Link>
                         <p className="text-[14px] leading-relaxed text-blue-50/95 mb-5 font-normal">
                             Sakthi Aviation Consultancy Services combines decades of aviation, airport operations,

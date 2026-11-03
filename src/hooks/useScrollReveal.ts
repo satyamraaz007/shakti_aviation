@@ -5,7 +5,12 @@ import { useEffect, useRef } from 'react';
  * Returns a ref to attach to the target element.
  * Respects prefers-reduced-motion.
  */
-export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
+export interface ScrollRevealOptions {
+    threshold?: number;
+    rootMargin?: string;
+}
+
+export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(options?: ScrollRevealOptions) {
     const ref = useRef<T>(null);
 
     useEffect(() => {
@@ -15,6 +20,9 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReduced) {
             el.classList.add('revealed');
+            el.querySelectorAll('.reveal, .reveal-slide-left, .reveal-slide-right, .reveal-card, .reveal-stagger, .reveal-stagger-cards').forEach(
+                (child) => child.classList.add('revealed')
+            );
             return;
         }
 
@@ -23,16 +31,23 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('revealed');
+                        // Propagate revealed class to direct reveal children if any
+                        entry.target.querySelectorAll('.reveal, .reveal-slide-left, .reveal-slide-right, .reveal-card, .reveal-stagger, .reveal-stagger-cards').forEach(
+                            (child) => child.classList.add('revealed')
+                        );
                         observer.unobserve(entry.target);
                     }
                 });
             },
-            { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+            {
+                threshold: options?.threshold ?? 0.08,
+                rootMargin: options?.rootMargin ?? '0px 0px -40px 0px',
+            }
         );
 
         observer.observe(el);
         return () => observer.disconnect();
-    }, []);
+    }, [options?.threshold, options?.rootMargin]);
 
     return ref;
 }

@@ -164,7 +164,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
                 id: 'cnt-1',
                 question: 'Where is your office located and what are the contact details?',
                 answer:
-                    'Our office is located at:\n#544, DLF Prime Towers, F-79 & 80, Okhla Industrial Area Phase-1, New Delhi – 110020, India.\n\nPhone: +91-9773944770 / +91-9810789223 / +91-11-41112778\nEmail: info@saktiaviation.com',
+                    'Our office is located at:\n#537, DLF Prime Towers, F-79 & 80, Okhla Industrial Area Phase-1, New Delhi – 110020, India.\n\nPhone: +91-9773944770 / +91-9810789223 / +91-11-41112778\nEmail: info@saktiaviation.com',
                 whatsappPrefill: 'Hello SACS Team, I would like to schedule a meeting or call regarding an aviation enquiry.',
             },
             {
