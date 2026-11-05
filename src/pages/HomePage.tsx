@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plane, Radio, ShieldCheck, FileCheck, Globe2, BookOpen, Building2, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, Radio, ShieldCheck, FileCheck, BookOpen, Building2, MapPin } from 'lucide-react';
 import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import SectionHeading from '@/components/SectionHeading';
@@ -12,11 +12,13 @@ import ImageWithFallback from '@/components/ImageWithFallback';
 import YellowBorderBeam from '@/components/YellowBorderBeam';
 import RadarBackground from '@/components/RadarBackground';
 import ClientCarousel from '@/components/ClientCarousel';
+import BlogCard from '@/components/BlogCard';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { services } from '@/data/services';
 import { projects } from '@/data/projects';
 import { teamMembers } from '@/data/team';
-import { stats, clients, publications, noApplicationTypes, siteInfo } from '@/data/siteInfo';
+import { blogPosts } from '@/data/blogs';
+import { stats, publications, noApplicationTypes } from '@/data/siteInfo';
 
 const orgJsonLd = {
     '@context': 'https://schema.org',
@@ -447,36 +449,60 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Knowledge & Publications */}
-            <section className="py-20 lg:py-28 overflow-hidden">
+            {/* Knowledge & Articles */}
+            <section className="py-20 lg:py-28 bg-[#faf9fb] overflow-hidden border-t border-gray-100">
                 <div className="container-sacs">
-                    <SectionHeading
-                        eyebrow="Knowledge & Research"
-                        title="Aviation Publications & Research"
-                        subtitle="Publications and reports authored by our senior professionals, contributing to the body of knowledge in aviation and air navigation."
-                        align="center"
-                        className="mb-14"
-                    />
-                    <div ref={knowledgeRef} className="reveal-stagger-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {publications.map((pub, index) => (
-                            <div
-                                key={index}
-                                className="group relative flex items-start gap-4 p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all overflow-hidden"
-                            >
-                                <YellowBorderBeam rx={12} />
-                                <span className="flex-shrink-0 w-11 h-14 rounded-md gradient-sacs flex items-center justify-center">
-                                    <BookOpen className="w-5 h-5 text-white" />
-                                </span>
-                                <div className="min-w-0">
-                                    <p className="text-[11px] font-bold uppercase tracking-wide text-[#A34354] mb-1.5">
-                                        Publication
-                                    </p>
-                                    <h3 className="text-[15px] font-semibold text-gray-900 leading-snug">
-                                        {pub.title}
-                                    </h3>
-                                </div>
-                            </div>
+                    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                        <div>
+                            <span className="eyebrow">Aviation Insights &amp; Thought Leadership</span>
+                            <h2 className="font-display font-bold text-3xl md:text-4xl text-gray-900 mt-1">
+                                Latest Technical Articles &amp; Regulatory Guides
+                            </h2>
+                            <p className="text-gray-600 text-[15px] mt-2 max-w-2xl">
+                                Authoritative analyses on AAI NOC height clearances, CNS/ATM airspace modernization, airport master planning, and DGCA safety compliance.
+                            </p>
+                        </div>
+                        <Link
+                            to="/blog"
+                            className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#168DE2] hover:text-[#0875D1] transition-colors flex-shrink-0"
+                        >
+                            <span>View All Articles</span>
+                            <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        {blogPosts.slice(0, 3).map((post) => (
+                            <BlogCard key={post.id} post={post} />
                         ))}
+                    </div>
+
+                    {/* Publications sub-row */}
+                    <div className="pt-12 border-t border-gray-200/80">
+                        <h3 className="text-[12.5px] font-bold uppercase tracking-[0.16em] text-gray-400 mb-6 text-center">
+                            Published Aviation Monographs &amp; Research Reports
+                        </h3>
+                        <div ref={knowledgeRef} className="reveal-stagger-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {publications.map((pub, index) => (
+                                <div
+                                    key={index}
+                                    className="group relative flex items-start gap-4 p-6 rounded-xl border border-gray-100 bg-white hover:shadow-md transition-all overflow-hidden"
+                                >
+                                    <YellowBorderBeam rx={12} />
+                                    <span className="flex-shrink-0 w-11 h-14 rounded-md gradient-sacs flex items-center justify-center">
+                                        <BookOpen className="w-5 h-5 text-white" />
+                                    </span>
+                                    <div className="min-w-0">
+                                        <p className="text-[11px] font-bold uppercase tracking-wide text-[#A34354] mb-1.5">
+                                            Publication
+                                        </p>
+                                        <h4 className="text-[15px] font-semibold text-gray-900 leading-snug">
+                                            {pub.title}
+                                        </h4>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

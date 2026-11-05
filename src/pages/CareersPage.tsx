@@ -7,6 +7,7 @@ import CTASection from '@/components/CTASection';
 import YellowBorderBeam from '@/components/YellowBorderBeam';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { siteInfo } from '@/data/siteInfo';
+import careerImg from '@/assets/Career.png';
 
 export default function CareersPage() {
     const whyRef = useScrollReveal<HTMLDivElement>();
@@ -25,7 +26,7 @@ export default function CareersPage() {
                 eyebrow="Careers"
                 title="Build the Future of Aviation With SACS"
                 subtitle="Join a team of senior aviation professionals delivering consultancy and implementation solutions across India and international markets."
-                image="https://images.pexels.com/photos/16099588/pexels-photo-16099588.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&dpr=1"
+                image={careerImg}
                 imageAlt="Airport runway illuminated at night with mountains in background"
                 breadcrumbs={[{ label: 'Careers' }]}
             />
@@ -117,7 +118,7 @@ export default function CareersPage() {
                     <div ref={resumeRef} className="reveal max-w-3xl mx-auto">
                         <SectionHeading
                             eyebrow="Open Positions"
-                            title="Current Vacancies"
+                            title="Ready to Build the Future"
                             className="mb-6"
                         />
                         <div className="card-sacs p-8 lg:p-10 text-center relative overflow-hidden group">

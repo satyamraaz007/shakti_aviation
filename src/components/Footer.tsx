@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Plane, MapPin, Phone, ExternalLink, Mail } from 'lucide-react';
-import { siteInfo, usefulLinks } from '@/data/siteInfo';
+import { MapPin, Phone, Mail } from 'lucide-react';
+import { siteInfo } from '@/data/siteInfo';
 import { services } from '@/data/services';
 import footerBg from '@/assets/footer_img.png';
 import Logo from '@/assets/sacs_logo.png'
@@ -57,6 +57,7 @@ export default function Footer() {
                             {[
                                 { label: 'About', path: '/about' },
                                 { label: 'Projects', path: '/projects' },
+                                { label: 'Blog & Insights', path: '/blog' },
                                 { label: 'Team', path: '/team' },
                                 { label: 'Careers', path: '/careers' },
                                 { label: 'Contact', path: '/contact' },

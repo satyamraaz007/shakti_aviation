@@ -1,10 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
 import ServicesPage from '@/pages/ServicesPage';
 import ServiceDetailPage from '@/pages/ServiceDetailPage';
 import ProjectsPage from '@/pages/ProjectsPage';
+import BlogListPage from '@/pages/BlogListPage';
+import BlogDetailPage from '@/pages/BlogDetailPage';
 import TeamPage from '@/pages/TeamPage';
 import CareersPage from '@/pages/CareersPage';
 import ContactPage from '@/pages/ContactPage';
@@ -21,6 +23,9 @@ export default function App() {
                     <Route path="/services" element={<ServicesPage />} />
                     <Route path="/services/:slug" element={<ServiceDetailPage />} />
                     <Route path="/projects" element={<ProjectsPage />} />
+                    <Route path="/blog" element={<BlogListPage />} />
+                    <Route path="/blogs" element={<Navigate to="/blog" replace />} />
+                    <Route path="/blog/:slug" element={<BlogDetailPage />} />
                     <Route path="/team" element={<TeamPage />} />
                     <Route path="/careers" element={<CareersPage />} />
                     <Route path="/contact" element={<ContactPage />} />

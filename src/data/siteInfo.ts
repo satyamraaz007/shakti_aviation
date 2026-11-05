@@ -27,6 +27,7 @@ export const navLinks = [
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services', hasMegaMenu: true },
     { label: 'Projects', path: '/projects' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Team', path: '/team' },
     { label: 'Careers', path: '/careers' },
     { label: 'Contact', path: '/contact' },

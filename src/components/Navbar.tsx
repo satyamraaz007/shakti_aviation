@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Plane, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { navLinks } from '@/data/siteInfo';
 import { services } from '@/data/services';
 import { siteInfo } from '@/data/siteInfo';
@@ -12,6 +12,11 @@ export default function Navbar() {
     const [servicesOpen, setServicesOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
     const location = useLocation();
+
+    const isLinkActive = (path: string) => {
+        if (path === '/') return location.pathname === '/';
+        return location.pathname.startsWith(path);
+    };
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -123,7 +128,7 @@ export default function Navbar() {
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors text-black hover:text-black hover:bg-gray-100 ${location.pathname === link.path ? 'font-semibold bg-gray-50' : ''
+                                    className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors text-black hover:text-black hover:bg-gray-100 ${isLinkActive(link.path) ? 'font-semibold bg-gray-50 text-[#168DE2]' : ''
                                         }`}
                                 >
                                     {link.label}
@@ -210,8 +215,8 @@ export default function Navbar() {
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className={`block px-4 py-3 rounded-lg text-[15px] font-medium transition-colors text-black hover:bg-gray-50 ${location.pathname === link.path
-                                        ? 'font-semibold bg-gray-100'
+                                    className={`block px-4 py-3 rounded-lg text-[15px] font-medium transition-colors text-black hover:bg-gray-50 ${isLinkActive(link.path)
+                                        ? 'font-semibold bg-gray-100 text-[#168DE2]'
                                         : ''
                                         }`}
                                 >
